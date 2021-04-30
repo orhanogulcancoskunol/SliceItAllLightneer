@@ -11,22 +11,14 @@ namespace _game.Scripts.Character
         public void ClearRotationBuffer() => _rotationBuffer = Quaternion.identity;
         
         [SerializeField] private Vector3 staticForce;
-        [SerializeField] private Vector3 destinationRotation, destinationRotationOpp;
         
         private Rigidbody _rigidbody;
-        private Quaternion _destinationRotation, _destinationRotationOpp;
         private Quaternion _rotationBuffer = Quaternion.identity;
-
+        private bool _isActive;
 
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody>();
-        }
-
-        private void Start()
-        {
-            _destinationRotation = Quaternion.Euler(destinationRotation);
-            _destinationRotationOpp = Quaternion.Euler(destinationRotationOpp);
         }
 
         private void FixedUpdate()
@@ -36,18 +28,16 @@ namespace _game.Scripts.Character
 
         public void Jump()
         {
-            Rotate(_destinationRotationOpp);
             ClearRotationBuffer();
             _rigidbody.AddForce(staticForce);
-            Rotate(_destinationRotation);
+            Rotate(Quaternion.Euler(-180,0,0));
         }
-
+        
         private void ApplyRotation()
         {
             var usedBuffer = Quaternion.Lerp(Quaternion.identity, _rotationBuffer, RotationSpeed);
             _rigidbody.MoveRotation(_rigidbody.rotation * usedBuffer);
             _rotationBuffer *= Quaternion.Inverse(usedBuffer);
-
         }
 
         public void Rotate(Quaternion rotation)
