@@ -6,20 +6,31 @@ namespace _game.Scripts.Managers
 {
     public class GameManager : Singleton<GameManager>
     {
-        public static GameManager Instance { get; private set; }
         public static event Action OnLevelInitialized, OnLevelStart, OnLevelFailed, OnLevelCompleted;
 
+        private bool _isPlaying;
         private void Start()
         {
             InitializeLevel();
         }
 
-        private static void InitializeLevel()
+        private void InitializeLevel()
         {
+            _isPlaying = false;
+            CharacterManager.Instance.Initialize();
             OnLevelInitialized?.Invoke();
         }
 
-        public void LevelStart()
+        private void Update()
+        {
+            if (_isPlaying)
+                return;
+            if (!Input.GetMouseButtonDown(0)) return;
+            _isPlaying = true;
+            LevelStart();
+        }
+
+        private void LevelStart()
         {
             OnLevelStart?.Invoke();
         }

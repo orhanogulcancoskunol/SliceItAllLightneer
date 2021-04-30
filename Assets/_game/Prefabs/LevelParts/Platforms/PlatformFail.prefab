@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9150803655491720563}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlatformFail
-  m_TagString: Untagged
+  m_TagString: WaterGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 9150803656895082640}
   - component: {fileID: 9150803656895082643}
   - component: {fileID: 9150803656895082642}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Object
   m_TagString: Untagged
   m_Icon: {fileID: 0}

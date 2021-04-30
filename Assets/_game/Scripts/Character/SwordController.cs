@@ -6,31 +6,54 @@ namespace _game.Scripts.Character
 {
     public class SwordController : MonoBehaviour
     {
-        [SerializeField] private Vector3 staticForce;
-        [SerializeField] private float durationJumpRotation;
-        private Rigidbody _rigidbody;
-        private bool _isJump;
-        private WaitForSeconds durationJumpRotationSeconds;
-        private Coroutine _currentJumpCoroutine;
+        public Quaternion Rotation => _rigidbody.rotation;
+        public float RotationSpeed;
+        public void ClearRotationBuffer() => _rotationBuffer = Quaternion.identity;
         
+        [SerializeField] private Vector3 staticForce;
+        [SerializeField] private Vector3 destinationRotation, destinationRotationOpp;
+        
+        private Rigidbody _rigidbody;
+        private Quaternion _destinationRotation, _destinationRotationOpp;
+        private Quaternion _rotationBuffer = Quaternion.identity;
+
+
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody>();
         }
 
-        public void Jump()
+        private void Start()
         {
-            _rigidbody.AddForce(staticForce);
-            if(_currentJumpCoroutine!=null)
-                StopCoroutine(_currentJumpCoroutine);
-            _currentJumpCoroutine = StartCoroutine(RotationSetter());
+            _destinationRotation = Quaternion.Euler(destinationRotation);
+            _destinationRotationOpp = Quaternion.Euler(destinationRotationOpp);
         }
 
-        private IEnumerator RotationSetter()
+        private void FixedUpdate()
         {
-            _isJump = true;
-            yield return durationJumpRotationSeconds;
-            _isJump = false;
+            ApplyRotation();
         }
+
+        public void Jump()
+        {
+            Rotate(_destinationRotationOpp);
+            ClearRotationBuffer();
+            _rigidbody.AddForce(staticForce);
+            Rotate(_destinationRotation);
+        }
+
+        private void ApplyRotation()
+        {
+            var usedBuffer = Quaternion.Lerp(Quaternion.identity, _rotationBuffer, RotationSpeed);
+            _rigidbody.MoveRotation(_rigidbody.rotation * usedBuffer);
+            _rotationBuffer *= Quaternion.Inverse(usedBuffer);
+
+        }
+
+        public void Rotate(Quaternion rotation)
+        {
+            _rotationBuffer *= rotation;
+        }
+
     }
 }

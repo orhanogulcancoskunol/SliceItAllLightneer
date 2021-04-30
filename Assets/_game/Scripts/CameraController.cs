@@ -11,8 +11,10 @@ namespace _game.Scripts
     {
         public bool IsActive { get; set; }
         private Vector3 _initialPosition;
-        private SwordController _target;
+        private Transform _target;
         [SerializeField] private Vector3 offSet;
+
+        private Vector3 _desiredPosition;
         
         private void Start()
         {
@@ -37,7 +39,9 @@ namespace _game.Scripts
 
         private void FixedUpdate()
         {
-            
+            if (!IsActive) return;
+            _desiredPosition = _target.position + offSet;
+            transform.position = Vector3.Lerp(transform.position, _desiredPosition, .125f);
         }
 
         private void ResetPosition()
@@ -59,7 +63,7 @@ namespace _game.Scripts
 
         private void SetOffSet()
         {
-            _target = CharacterManager.Instance.CurrentCharacter;
+            _target = CharacterManager.Instance.CurrentCharacter.transform;
         }
     }
 }

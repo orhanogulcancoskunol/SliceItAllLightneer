@@ -11,18 +11,23 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/_game/Scripts/Singleton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_game/Scripts/ScriptableObjects/ObstacleSO.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_game/Scripts/Obstacles/ObstacleController.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/_game/Scripts/Character/SwordController.cs" />
       <option value="$PROJECT_DIR$/Assets/_game/Scripts/GameManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/_game/Scripts/Managers/CharacterManager.cs" />
       <option value="$PROJECT_DIR$/Assets/_game/Scripts/Singleton.cs" />
-      <option value="$PROJECT_DIR$/Assets/_game/Scripts/Managers/GameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/_game/Scripts/Character/SwordInputController.cs" />
-      <option value="$PROJECT_DIR$/Assets/_game/Scripts/CameraController.cs" />
       <option value="$PROJECT_DIR$/Assets/_game/Scripts/ActiveSetters.cs" />
+      <option value="$PROJECT_DIR$/Assets/_game/Scripts/Utilities/Singleton.cs" />
+      <option value="$PROJECT_DIR$/Assets/_game/Scripts/Utilities/Interfaces/IActiveSetters.cs" />
+      <option value="$PROJECT_DIR$/Assets/_game/Scripts/ScriptableObjects/ObstacleSO.cs" />
+      <option value="$PROJECT_DIR$/Assets/_game/Scripts/Managers/CharacterManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/_game/Scripts/Managers/GameManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/_game/Scripts/CameraController.cs" />
+      <option value="$PROJECT_DIR$/Assets/_game/Scripts/Character/SwordController.cs" />
+      <option value="$PROJECT_DIR$/Assets/_game/Scripts/Obstacles/ObstacleController.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rsRhZKwfFQFti5IQm0Pfdo1vvL" />
@@ -68,7 +73,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1619762945944</updated>
-      <workItem from="1619762972631" duration="3701000" />
+      <workItem from="1619762972631" duration="8633000" />
     </task>
     <servers />
   </component>
