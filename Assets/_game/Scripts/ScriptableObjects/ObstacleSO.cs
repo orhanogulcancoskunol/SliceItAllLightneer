@@ -6,5 +6,6 @@ namespace _game.Scripts.ScriptableObjects
     public class ObstacleSO : ScriptableObject
     {
         public Vector3 AppliableForce;
+        public int Score;
     }
 }

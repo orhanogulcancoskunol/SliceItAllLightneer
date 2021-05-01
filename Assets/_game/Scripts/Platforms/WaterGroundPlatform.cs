@@ -9,7 +9,7 @@ namespace _game.Scripts.Platforms
         {
             if (!other.gameObject.tag.Equals("Finish")) return;
             CharacterManager.Instance.CurrentCharacter.UnFreezeRotation();
-            GameManager.Instance.LevelFail();
+            GameManager.LevelFail();
         }
     }
 }

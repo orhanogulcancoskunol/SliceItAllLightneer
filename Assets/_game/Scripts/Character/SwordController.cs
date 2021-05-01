@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace _game.Scripts.Character
@@ -60,8 +61,14 @@ namespace _game.Scripts.Character
                 RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezeRotationX |
                 RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
         }
-
+        
         #endregion
+
+        private void OnCollisionEnter(Collision other)
+        {
+            if(other.gameObject.tag.Equals("Platform"))
+                ClearRotationBuffer();
+        }
         
     }
 }

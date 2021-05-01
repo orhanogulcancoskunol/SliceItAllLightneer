@@ -6,7 +6,7 @@ namespace _game.Scripts.Utilities
     {
         public static T Instance { get; private set; }
 
-        protected void Awake()
+        protected virtual void Awake()
         {
             if (Instance == null)
                 Instance = GetComponent<T>();
