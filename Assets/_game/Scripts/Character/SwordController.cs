@@ -45,5 +45,23 @@ namespace _game.Scripts.Character
             _rotationBuffer *= rotation;
         }
 
+        #region freezeX
+
+        public void UnFreezeRotation()
+        {
+            _rigidbody.constraints =
+                RigidbodyConstraints.FreezePositionX |
+                RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+        }
+
+        public void FreezeRotation()
+        {
+            _rigidbody.constraints =
+                RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezeRotationX |
+                RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+        }
+
+        #endregion
+        
     }
 }
