@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1454046139791016101}
   - component: {fileID: 3608952521822903681}
+  - component: {fileID: 4617663597444840762}
   m_Layer: 0
   m_Name: SwordBottom
   m_TagString: Untagged
@@ -44,6 +45,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.05235019, y: 2.750134, z: 0.1094206}
   m_Center: {x: 0, y: 0.945, z: -0.012}
+--- !u!114 &4617663597444840762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1378132800960910413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c431b0d0d8164a14da62de0fd8da2f84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3108975617500749191
 GameObject:
   m_ObjectHideFlags: 0
@@ -56,8 +69,9 @@ GameObject:
   - component: {fileID: 8968767703503088061}
   - component: {fileID: 1289494104097817588}
   - component: {fileID: 3388451823706202983}
-  - component: {fileID: 8816212055596842750}
   - component: {fileID: 8451809142601057233}
+  - component: {fileID: 5903140140571422963}
+  - component: {fileID: 6299434404584006636}
   m_Layer: 9
   m_Name: CharacterBase
   m_TagString: Finish
@@ -95,8 +109,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f47f06e264ace864193d50292c11a1d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SwordPartsToIgnore:
-  - {fileID: 5835055970628796658}
   RotationSpeed: 0.05
   staticForce: {x: 0, y: 1200, z: 200}
 --- !u!114 &1289494104097817588
@@ -127,19 +139,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 114
   m_CollisionDetection: 0
---- !u!65 &8816212055596842750
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3108975617500749191}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 0.05235019, y: 2.750134, z: 0.1094206}
-  m_Center: {x: 0, y: 0.945, z: -0.012}
 --- !u!114 &8451809142601057233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,6 +149,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46a3e3d39b6b533458f43b394d51602c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5903140140571422963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3108975617500749191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc61b3df3f7c9749af34fa6ab679284, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Model: {fileID: 3131986741941191473}
+  OriginalMaterial: {fileID: 2100000, guid: c0ce57c2008db524ca0cf73357bdc30d, type: 2}
+  HitMaterial: {fileID: 2100000, guid: cce52fa8b039c0544889540ef84ab238, type: 2}
+--- !u!114 &6299434404584006636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3108975617500749191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bce758eb9314d494b8761f688bf1fda0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3109273848070485435
@@ -318,6 +344,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2120469946344288699}
   - component: {fileID: 5835055970628796658}
+  - component: {fileID: 2671610735070904705}
   m_Layer: 9
   m_Name: SwordTop
   m_TagString: Untagged
@@ -352,3 +379,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.05235019, y: 2.750134, z: 0.1094206}
   m_Center: {x: 0, y: 0.945, z: -0.012}
+--- !u!114 &2671610735070904705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5899337034210705239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aee5c497d6f6a9468652190ef169bf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

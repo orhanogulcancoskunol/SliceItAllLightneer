@@ -63,12 +63,5 @@ namespace _game.Scripts.Character
         }
         
         #endregion
-
-        private void OnCollisionEnter(Collision other)
-        {
-            if(other.gameObject.tag.Equals("Platform"))
-                ClearRotationBuffer();
-        }
-        
     }
 }
