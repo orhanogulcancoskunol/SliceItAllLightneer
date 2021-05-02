@@ -10,6 +10,7 @@ namespace _game.Scripts.Obstacles
         public ObstacleSO ObstacleInfo;
         public Rigidbody PieceLeft, PieceRight;
 
+        [SerializeField] private int ScoreToGive;
         [SerializeField]private TagConstantsSO tagConstants;
         private const float _timeToDestroy = 8f;
 
@@ -18,6 +19,7 @@ namespace _game.Scripts.Obstacles
             if (other.gameObject.TryGetComponent<SwordBottom>(out var bot))
             {
                 bot.JumpSetter();
+                return;
             }
             if (!other.tag.Equals(tagConstants.Player)) return;
             GetComponent<Collider>().enabled = false;
@@ -28,7 +30,7 @@ namespace _game.Scripts.Obstacles
         private void UpdateScore(Component other)
         {
             other.GetComponentInParent<SwordPolishController>().SetHitObject(other.transform);
-            other.GetComponentInParent<SwordScoreController>().OnObstacle.Invoke(ObstacleInfo.Score);
+            other.GetComponentInParent<SwordScoreController>().OnObstacle.Invoke(ScoreToGive);
         }
 
         private void ApplyForceToPieces()

@@ -2,62 +2,69 @@
 using System.Collections;
 using System.Collections.Generic;
 using _game.Scripts.Managers;
+using _game.Scripts.Utilities.Interfaces;
 using UnityEngine;
 
 namespace _game.Scripts.Character
 {
-    public class SwordController : MonoBehaviour
+    public class SwordController : MonoBehaviour, IActiveSetters
     {
+        public bool IsActive { get; set; }
         private Rigidbody _rigidbody;
-        private bool _isActive;
+        private bool _isRotating;
         private float _durationForReJumpLimit;
         [SerializeField] private Vector3 staticForce;
+        
         [Header("ReJump Values")]
-        [SerializeField] private float durationForReJump = 1f;
         [SerializeField] private float durationForJump = 4f;
-        [SerializeField] private float velocityYLimit = -3f;
+        [SerializeField] private float velocityYLimit = -4f;
+        [SerializeField][Range(60,360)] private float flyingSpinSpeed = 60f;
+        [SerializeField] [Range(180, 720)] private float reJumpSpeed = 360f;
 
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody>();
-            _durationForReJumpLimit = durationForReJump;
         }
 
         private void FixedUpdate()
         {
+            SpinOnFly();
             ReJump();
         }
 
         private void OnEnable()
         {
-            GameManager.OnLevelFailed += StopAllCoroutines;
-            GameManager.OnLevelFailed += UnFreezeRotation;
-            GameManager.OnLevelCompleted += StopAllCoroutines;
+            GameManager.OnLevelStart += SetEnabled;
+            GameManager.OnLevelFailed += DisableStopActive;
+            GameManager.OnLevelCompleted += DisableStopActive;
         }
 
         private void OnDisable()
         {
-            GameManager.OnLevelFailed -= StopAllCoroutines;
-            GameManager.OnLevelFailed -= UnFreezeRotation;
-            GameManager.OnLevelCompleted -= StopAllCoroutines;
+            GameManager.OnLevelStart += SetEnabled;
+            GameManager.OnLevelFailed -= DisableStopActive;
+            GameManager.OnLevelCompleted -= DisableStopActive;
+        }
+
+        private void SpinOnFly()
+        {
+            if (_rigidbody.velocity.y >= velocityYLimit && _rigidbody.velocity.y!=0 && !_isRotating && IsActive)
+            {
+                transform.Rotate(flyingSpinSpeed*Time.fixedDeltaTime, 0 ,0);
+            }
         }
 
         private void ReJump()
         {
-            if (_rigidbody.velocity.y < velocityYLimit && durationForReJump >= _durationForReJumpLimit)
+            if (_rigidbody.velocity.y < velocityYLimit)
             {
-                StartCoroutine(Rotate(durationForJump));
-                durationForReJump = 0;
-            }
-            else
-            {
-                durationForReJump += Time.fixedDeltaTime;
+                transform.Rotate(reJumpSpeed*Time.fixedDeltaTime, 0 ,0);
             }
         }
 
-        public void Jump()
+        public void Jump(Vector3 customStaticForce = default)
         {
-            _rigidbody.AddForce(staticForce);
+            _rigidbody.AddForce(customStaticForce != default ? customStaticForce : staticForce);
             StopAllCoroutines();
             StartCoroutine(Rotate(durationForJump));
         }
@@ -66,18 +73,24 @@ namespace _game.Scripts.Character
         {
             var startRot = transform.rotation;
             var t = 0f;
+            _isRotating = true;
             while ( t  < duration )
             {
                 t += Time.fixedDeltaTime;
                 transform.rotation = startRot * Quaternion.AngleAxis(t / duration * 360f, Vector3.right);
                 yield return null;
             }
+
+            if (t >= duration)
+            {
+                _isRotating = false;
+            }
             transform.rotation = startRot;
         }
 
         #region freezeX
 
-        private void UnFreezeRotation()
+        public void UnFreezeRotation()
         {
             _rigidbody.constraints =
                 RigidbodyConstraints.FreezePositionX |
@@ -92,5 +105,31 @@ namespace _game.Scripts.Character
         }
         
         #endregion
+
+        private void DisableStopActive()
+        {
+            StopAllCoroutines();
+            SetDisabled();
+        }
+
+        public Vector3 GetStaticForceForHit()
+        {
+            return staticForce * 2;
+        }
+
+        public void DisableRotate()
+        {
+            _isRotating = true;
+        }
+        
+        public void SetEnabled()
+        {
+            IsActive = true;
+        }
+
+        public void SetDisabled()
+        {
+            IsActive = false;
+        }
     }
 }

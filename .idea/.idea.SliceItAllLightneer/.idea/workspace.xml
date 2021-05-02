@@ -41,15 +41,16 @@
       <option value="$PROJECT_DIR$/Assets/_game/Scripts/UI/InLevelCanvasController.cs" />
       <option value="$PROJECT_DIR$/Assets/_game/Scripts/Managers/GameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/_game/Scripts/WindEffect.cs" />
-      <option value="$PROJECT_DIR$/Assets/_game/Scripts/Character/SwordPolishController.cs" />
-      <option value="$PROJECT_DIR$/Assets/_game/Scripts/Obstacles/ObstacleController.cs" />
       <option value="$PROJECT_DIR$/Assets/_game/Scripts/UI/LevelCompleteCanvasController.cs" />
       <option value="$PROJECT_DIR$/Assets/_game/Scripts/Character/SwordScoreController.cs" />
       <option value="$PROJECT_DIR$/Assets/_game/Scripts/Platforms/EndLevelPlatform.cs" />
       <option value="$PROJECT_DIR$/Assets/_game/Scripts/ScoreEffectController.cs" />
+      <option value="$PROJECT_DIR$/Assets/_game/Scripts/Obstacles/ObstacleController.cs" />
+      <option value="$PROJECT_DIR$/Assets/_game/Scripts/Obstacles/NotBreakableObstacleController.cs" />
       <option value="$PROJECT_DIR$/Assets/_game/Scripts/Platforms/WaterGroundPlatform.cs" />
-      <option value="$PROJECT_DIR$/Assets/_game/Scripts/Character/SwordController.cs" />
       <option value="$PROJECT_DIR$/Assets/_game/Scripts/Character/SwordHitController.cs" />
+      <option value="$PROJECT_DIR$/Assets/_game/Scripts/Character/SwordController.cs" />
+      <option value="$PROJECT_DIR$/Assets/_game/Scripts/Character/SwordPolishController.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1rsRhZKwfFQFti5IQm0Pfdo1vvL" />
@@ -97,7 +98,7 @@
       <updated>1619762945944</updated>
       <workItem from="1619762972631" duration="16430000" />
       <workItem from="1619865554449" duration="8714000" />
-      <workItem from="1619951606774" duration="13168000" />
+      <workItem from="1619951606774" duration="17586000" />
     </task>
     <servers />
   </component>

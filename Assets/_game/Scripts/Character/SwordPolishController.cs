@@ -48,7 +48,7 @@ namespace _game.Scripts.Character
         private IEnumerator SwapMaterialAndJumpCoroutine()
         {
             Model.materials = new[] {HitMaterial};
-            _swordController.Jump();
+            _swordController.Jump(_swordController.GetStaticForceForHit());
             yield return new WaitForSeconds(hitAndSwapTime);
             Model.materials = new[] {OriginalMaterial};
         }

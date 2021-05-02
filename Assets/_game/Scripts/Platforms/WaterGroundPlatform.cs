@@ -10,6 +10,7 @@ namespace _game.Scripts.Platforms
         private void OnCollisionEnter(Collision other)
         {
             if (!other.gameObject.tag.Equals(tagConstants.FinishPlayer)) return;
+            CharacterManager.Instance.CurrentCharacter.UnFreezeRotation();
             GameManager.LevelFail();
         }
     }

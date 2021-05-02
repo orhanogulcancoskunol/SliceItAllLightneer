@@ -53,6 +53,7 @@ namespace _game.Scripts.Character
             else if (col.TryGetComponent<SwordTop>(out _))
             {
                 _swordController.StopAllCoroutines();
+                _swordController.DisableRotate();
             }
         }
         
