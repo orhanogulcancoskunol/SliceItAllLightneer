@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: CubeObstacle
   m_EditorClassIdentifier: 
   AppliableForce: {x: 250, y: 50, z: 0}
+  Score: 1

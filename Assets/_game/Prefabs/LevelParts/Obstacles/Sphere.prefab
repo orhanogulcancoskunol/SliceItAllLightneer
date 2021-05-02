@@ -122,6 +122,7 @@ MonoBehaviour:
   ObstacleInfo: {fileID: 11400000, guid: 52232c1ebd39be5479fac5986b9ccba2, type: 2}
   PieceLeft: {fileID: 4373896130993198000}
   PieceRight: {fileID: 605580373772311822}
+  ScoreToGive: 2
   tagConstants: {fileID: 11400000, guid: 579e2adc9ec8d0b40ab577618ab1e35c, type: 2}
 --- !u!1001 &501012123877532407
 PrefabInstance:

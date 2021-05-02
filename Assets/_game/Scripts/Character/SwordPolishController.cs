@@ -12,8 +12,13 @@ namespace _game.Scripts.Character
         public MeshRenderer Model;
         [Header("Hit Material")] public Material OriginalMaterial;
         public Material HitMaterial;
+        [SerializeField] private float hitAndSwapTime;
+
+        [Header("Score Effect")] public ScoreEffectController ScoreEffect;
+        [SerializeField] private float _timeToDestroyScoreEffect;
         
         private SwordController _swordController;
+        private Transform _hitObject;
 
         private void OnEnable()
         {
@@ -44,8 +49,20 @@ namespace _game.Scripts.Character
         {
             Model.materials = new[] {HitMaterial};
             _swordController.Jump();
-            yield return new WaitForSeconds(.5f);
+            yield return new WaitForSeconds(hitAndSwapTime);
             Model.materials = new[] {OriginalMaterial};
+        }
+
+        public void AddScorePolish(int val)
+        {
+            var score = Instantiate(ScoreEffect, _hitObject.position, Quaternion.Euler(0, -90f, 0));
+            score.UpdateScore(val);
+            Destroy(score.gameObject, _timeToDestroyScoreEffect);
+        }
+
+        public void SetHitObject(Transform hitObject)
+        {
+            _hitObject = hitObject;
         }
         
         public void SetEnabled()

@@ -1,5 +1,6 @@
 ﻿using System;
 using _game.Scripts.Managers;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,7 @@ namespace _game.Scripts.UI
     public class LevelCompleteCanvasController : CanvasController<LevelCompleteCanvasController>
     {
         public Button NextLevelButton;
+        public TextMeshProUGUI Score;
 
         private void OnEnable()
         {

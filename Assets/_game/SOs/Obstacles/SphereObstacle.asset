@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: SphereObstacle
   m_EditorClassIdentifier: 
   AppliableForce: {x: 200, y: 65, z: 0}
+  Score: 2

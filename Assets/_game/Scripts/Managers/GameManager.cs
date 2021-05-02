@@ -25,6 +25,7 @@ namespace _game.Scripts.Managers
             CharacterManager.Instance.Initialize();
             IntroLevelCanvasController.Instance.Show();
             LevelCompleteCanvasController.Instance.Hide();
+            InLevelCanvasController.Instance.Hide();
             LevelFailController.Instance.Hide();
             OnLevelInitialized?.Invoke();
         }
@@ -43,6 +44,7 @@ namespace _game.Scripts.Managers
             IntroLevelCanvasController.Instance.Hide();
             LevelCompleteCanvasController.Instance.Hide();
             LevelFailController.Instance.Hide();
+            InLevelCanvasController.Instance.Show();
             OnLevelStart?.Invoke();
         }
 
@@ -50,6 +52,7 @@ namespace _game.Scripts.Managers
         {
             IntroLevelCanvasController.Instance.Hide();
             LevelCompleteCanvasController.Instance.Hide();
+            InLevelCanvasController.Instance.Hide();
             LevelFailController.Instance.Show();
             OnLevelFailed?.Invoke();
         }
@@ -59,6 +62,7 @@ namespace _game.Scripts.Managers
             IntroLevelCanvasController.Instance.Hide();
             LevelCompleteCanvasController.Instance.Show();
             LevelFailController.Instance.Hide();
+            InLevelCanvasController.Instance.Hide();
             OnLevelCompleted?.Invoke();
             _currentLevel++;
         }
