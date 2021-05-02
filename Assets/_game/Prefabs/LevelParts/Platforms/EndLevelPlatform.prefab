@@ -279,6 +279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreMultiplier: 1
+  tagConstants: {fileID: 11400000, guid: 579e2adc9ec8d0b40ab577618ab1e35c, type: 2}
 --- !u!1 &1191058624775098290
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,6 +523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreMultiplier: 2
+  tagConstants: {fileID: 11400000, guid: 579e2adc9ec8d0b40ab577618ab1e35c, type: 2}
 --- !u!1 &2646167668633725894
 GameObject:
   m_ObjectHideFlags: 0
@@ -899,6 +901,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreMultiplier: 6
+  tagConstants: {fileID: 11400000, guid: 579e2adc9ec8d0b40ab577618ab1e35c, type: 2}
 --- !u!1 &3891273160396353385
 GameObject:
   m_ObjectHideFlags: 0
@@ -1008,6 +1011,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreMultiplier: 8
+  tagConstants: {fileID: 11400000, guid: 579e2adc9ec8d0b40ab577618ab1e35c, type: 2}
 --- !u!1 &6301233119458872485
 GameObject:
   m_ObjectHideFlags: 0
@@ -1219,3 +1223,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreMultiplier: 4
+  tagConstants: {fileID: 11400000, guid: 579e2adc9ec8d0b40ab577618ab1e35c, type: 2}

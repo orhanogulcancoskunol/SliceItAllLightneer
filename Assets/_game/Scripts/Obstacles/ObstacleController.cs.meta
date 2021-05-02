@@ -3,7 +3,11 @@ guid: 6b637c09d2fbebe4f9736e9cb21b7ce5
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - ObstacleInfo: {instanceID: 0}
+  - PieceLeft: {instanceID: 0}
+  - PieceRight: {instanceID: 0}
+  - tagConstants: {fileID: 11400000, guid: 579e2adc9ec8d0b40ab577618ab1e35c, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

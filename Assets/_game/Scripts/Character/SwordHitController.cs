@@ -1,25 +1,61 @@
 ﻿using System;
 using _game.Scripts.Character.SwordParts;
+using _game.Scripts.Managers;
+using _game.Scripts.ScriptableObjects;
+using _game.Scripts.Utilities.Interfaces;
 using UnityEngine;
 
 namespace _game.Scripts.Character
 {
-    public class SwordHitController : MonoBehaviour
+    public class SwordHitController : MonoBehaviour, IActiveSetters
     {
+        public bool IsActive { get; set; }
+        [SerializeField] private TagConstantsSO tagConstants;
+        private SwordController _swordController;
+        private SwordPolishController _polishController;
+
+        private void Start()
+        {
+            _swordController = GetComponent<SwordController>();
+            _polishController = GetComponent<SwordPolishController>();
+        }
+
+        private void OnEnable()
+        {
+            GameManager.OnLevelStart += SetEnabled;
+            GameManager.OnLevelCompleted += SetDisabled;
+            GameManager.OnLevelFailed += SetDisabled;
+        }
+
+        private void OnDisable()
+        {
+            GameManager.OnLevelStart -= SetEnabled;
+            GameManager.OnLevelCompleted -= SetDisabled;
+            GameManager.OnLevelFailed -= SetDisabled;
+        }
+
         private void OnCollisionEnter(Collision other)
         {
+            if (!IsActive) return;
             var col = other.contacts[0].thisCollider;
-            var isTop = col.TryGetComponent<SwordTop>(out _);
-            var isBot = col.TryGetComponent<SwordBottom>(out _);
-            if (isBot && other.gameObject.tag.Equals("Platform") || other.gameObject.tag.Equals("Obstacle"))
+            if (col.TryGetComponent<SwordBottom>(out _) && other.gameObject.tag.Equals(tagConstants.Platform))
             {
-                Debug.Log("Hit Bottom");
-                GetComponent<SwordPolishController>().SwapMaterialAndJump();
+                _polishController.SwapMaterialAndJump();
             }
-            else if (isTop)
+            else if (col.TryGetComponent<SwordTop>(out _))
             {
-                GetComponent<SwordController>().ClearRotationBuffer();
+                _swordController.ClearRotationBuffer();
             }
+        }
+        
+        public void SetEnabled()
+        {
+            IsActive = true;
+        }
+
+        public void SetDisabled()
+        {
+            IsActive = false;
         }
     }
 }

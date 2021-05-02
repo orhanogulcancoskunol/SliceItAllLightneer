@@ -62,6 +62,7 @@ MonoBehaviour:
   ObstacleInfo: {fileID: 11400000, guid: 4a713a26509ecf447a8d7c62ad1c4b1d, type: 2}
   PieceLeft: {fileID: 4010785773264048489}
   PieceRight: {fileID: 4827663841160877757}
+  tagConstants: {fileID: 11400000, guid: 579e2adc9ec8d0b40ab577618ab1e35c, type: 2}
 --- !u!1 &6443956332034074286
 GameObject:
   m_ObjectHideFlags: 0

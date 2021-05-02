@@ -41,7 +41,7 @@ namespace _game.Scripts.Character
             _rotationBuffer *= Quaternion.Inverse(usedBuffer);
         }
 
-        public void Rotate(Quaternion rotation)
+        private void Rotate(Quaternion rotation)
         {
             _rotationBuffer *= rotation;
         }
