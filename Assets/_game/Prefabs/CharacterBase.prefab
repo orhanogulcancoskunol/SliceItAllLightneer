@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RotationSpeed: 0.05
-  staticForce: {x: 0, y: 1200, z: 200}
+  staticForce: {x: 0, y: 1000, z: 150}
 --- !u!114 &1289494104097817588
 MonoBehaviour:
   m_ObjectHideFlags: 0

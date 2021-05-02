@@ -13,11 +13,19 @@ namespace _game.Scripts.Character
         [SerializeField] private TagConstantsSO tagConstants;
         private SwordController _swordController;
         private SwordPolishController _polishController;
+        private bool _isFailed;
 
         private void Start()
         {
             _swordController = GetComponent<SwordController>();
             _polishController = GetComponent<SwordPolishController>();
+        }
+
+        private void FixedUpdate()
+        {
+            if (!(transform.position.y <= -5f) || _isFailed) return;
+            GameManager.LevelFail();
+            _isFailed = true;
         }
 
         private void OnEnable()
@@ -44,7 +52,7 @@ namespace _game.Scripts.Character
             }
             else if (col.TryGetComponent<SwordTop>(out _))
             {
-                _swordController.ClearRotationBuffer();
+                _swordController.StopAllCoroutines();
             }
         }
         
